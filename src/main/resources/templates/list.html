@@ -4,8 +4,48 @@
 <head>
     <meta charset="UTF-8">
     <title>Employees</title>
+    <style>
+        #employees {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        #employees td, #employees th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #employees tr:nth-child(even){background-color: #f2f2f2;}
+
+        #employees tr:hover {background-color: #ddd;}
+
+        #employees th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #04AA6D;
+            color: white;
+        }
+    </style>
 </head>
 <body>
+<h3 style="text-align: center; font: bold">Employees list</h3>
+<br>
+<table id="employees">
+    <tr>
+        <th>Id</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+    </tr>
+    <tr th:each="e: ${employees}">
+        <td th:text="${e.getId()}"></td>
+        <td th:text="${e.getFirstName()}"></td>
+        <td th:text="${e.getLastName()}"></td>
+        <td th:text="${e.getEmail()}"></td>
+    </tr>
+</table>
 
 </body>
 </html>
