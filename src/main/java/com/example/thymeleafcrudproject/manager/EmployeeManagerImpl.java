@@ -22,18 +22,17 @@ public class EmployeeManagerImpl implements EmployeeManager {
 
     @Override
     public Employee getById(int id) {
-        Employee employee = this.employeeService.findById(id).orElseThrow();
-        return employee;
+        return this.employeeService.findById(id).orElseThrow();
     }
 
     @Override
     public void saveEmployee(Employee employee) {
-
+        employeeService.save(employee);
     }
 
     @Override
     public void deleteEmployee(Employee employee) {
-
+        employeeService.delete(employee);
     }
 
     @Override

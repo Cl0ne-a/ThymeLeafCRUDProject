@@ -5,6 +5,7 @@ import com.example.thymeleafcrudproject.manager.EmployeeManager;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
@@ -16,6 +17,7 @@ public class MorningCheckIns {
 
     private final EmployeeManager employeeManager;
 
+    @PostConstruct
     private void letEmployeesIn() {
         Employee e1 = new Employee().setId(1).setFirstName("Lana").setLastName("Rais").setEmail("lana@gmail.com");
         Employee e2 = new Employee().setId(2).setFirstName("Dusty").setLastName("Greg").setEmail("dusty@gmail.com");

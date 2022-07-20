@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Employees</title>
     <style>
+
         #employees {
             font-family: Arial, Helvetica, sans-serif;
             border-collapse: collapse;
@@ -27,11 +28,30 @@
             background-color: #04AA6D;
             color: white;
         }
+        .button {
+            background-color: white;
+            color: green;
+            border: 2px solid #4CAF50; /* Green */
+            border-radius: 3px;
+            padding: 12px 28px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.4s;
+        }
+        .button:hover {
+            background-color: #4CAF50; /* Green */
+            color: white;
+        }
     </style>
 </head>
 <body>
 <h3 style="text-align: center; font: bold">Employees list</h3>
-<br>
+<hr>
+<a th:href="@{/departmant/showFormForAdd}"
+class="button">Add Employee</a>
 <table id="employees">
     <tr>
         <th>Id</th>
