@@ -33,9 +33,35 @@
             color: green;
             border: 2px solid #4CAF50; /* Green */
             border-radius: 3px;
-            padding: 12px 28px;
+            padding: 10px 16px;
             text-align: center;
             text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.4s;
+        }
+        .delete-button {
+            background-color: white;
+            color: darkred;
+            border: 2px solid #d65d5d; /* Green */
+            border-radius: 3px;
+            padding: 6px 10px;
+            text-align: center;
+            text-decoration: brown;
+            display: inline-block;
+            font-size: 16px;
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.4s;
+        }
+        .update-button {
+            background-color: white;
+            color: rgba(20, 81, 4, 0.96);
+            border: 2px solid rgba(12, 92, 2, 0.96); /* Green */
+            border-radius: 3px;
+            padding: 6px 10px;
+            text-align: center;
+            text-decoration: #4af0ca;
             display: inline-block;
             font-size: 16px;
             -webkit-transition-duration: 0.4s; /* Safari */
@@ -44,6 +70,16 @@
         .button:hover {
             background-color: #4CAF50; /* Green */
             color: white;
+        }
+        .delete-button:hover {
+            background-color: #fbb0b0; /* Green */
+            color: #920000;
+            font: bold;
+        }
+        .update-button:hover {
+            background-color: #c4f5d3; /* Green */
+            color: rgba(22, 146, 0, 0.98);
+            font: bold;
         }
     </style>
 </head>
@@ -66,9 +102,11 @@ class="button">Add Employee</a>
         <td th:text="${e.getLastName()}"></td>
         <td th:text="${e.getEmail()}"></td>
         <td >
-            <a th:href="@{/departmant/showFormForUpdate (employeeId=${e.id})}">Update</a>
+            <a th:href="@{/departmant/showFormForUpdate (employeeId=${e.id})}"
+            class="update-button">Update</a>
             <a th:href="@{/departmant/delete (employeeId=${e.id})}"
-            onclick="if(!(confirm('Are you sure you want to delete this employee?'))) return false">Delete</a>
+            onclick="if(!(confirm('Are you sure you want to delete this employee?'))) return false"
+            class="delete-button">Delete</a>
         </td>
     </tr>
 </table>
