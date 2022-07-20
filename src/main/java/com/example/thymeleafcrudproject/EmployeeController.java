@@ -3,13 +3,9 @@ package com.example.thymeleafcrudproject;
 import com.example.thymeleafcrudproject.entity.Employee;
 import com.example.thymeleafcrudproject.manager.EmployeeManager;
 import lombok.RequiredArgsConstructor;
-import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
 @Controller
@@ -32,9 +28,23 @@ public class EmployeeController {
         return "employee-form";
     }
 
+    @GetMapping("/showFormForUpdate")
+    public String showUpdateForm(@RequestParam("employeeId") int id, Model model) {
+        var employeeToUpdate = employeeManager.getById(id);
+        model.addAttribute("employee", employeeToUpdate);
+        return "employee-form";
+    }
+
     @PostMapping("/save")
     public String saveEmployee(@ModelAttribute("employee") Employee employee) {
         employeeManager.saveEmployee(employee);
+        return "redirect:/departmant/employees";
+    }
+
+    @GetMapping("/delete")
+    public String deleteEmployee(@RequestParam("employeeId") int employeeId) {
+        var employeeToDelete = employeeManager.getById(employeeId);
+        employeeManager.deleteEmployee(employeeToDelete);
         return "redirect:/departmant/employees";
     }
 }

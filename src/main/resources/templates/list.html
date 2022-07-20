@@ -58,12 +58,18 @@ class="button">Add Employee</a>
         <th>First Name</th>
         <th>Last Name</th>
         <th>Email</th>
+        <th>Action</th>
     </tr>
     <tr th:each="e: ${employees}">
         <td th:text="${e.getId()}"></td>
         <td th:text="${e.getFirstName()}"></td>
         <td th:text="${e.getLastName()}"></td>
         <td th:text="${e.getEmail()}"></td>
+        <td >
+            <a th:href="@{/departmant/showFormForUpdate (employeeId=${e.id})}">Update</a>
+            <a th:href="@{/departmant/delete (employeeId=${e.id})}"
+            onclick="if(!(confirm('Are you sure you want to delete this employee?'))) return false">Delete</a>
+        </td>
     </tr>
 </table>
 

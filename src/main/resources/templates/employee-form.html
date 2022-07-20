@@ -21,6 +21,9 @@
     <form action="#"    th:action="@{/departmant/save}"
                         th:object="${employee}" method="post">
         <label>
+            <input type="hidden" th:field="*{id}">
+        </label>
+        <label>
             <input type="text" th:field="*{firstName}" placeholder="first name">
         </label>
         <label>

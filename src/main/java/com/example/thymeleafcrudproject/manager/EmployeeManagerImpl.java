@@ -1,8 +1,7 @@
 package com.example.thymeleafcrudproject.manager;
 
-import com.example.thymeleafcrudproject.dao.EmployeeService;
+import com.example.thymeleafcrudproject.dao.EmployeeRepository;
 import com.example.thymeleafcrudproject.entity.Employee;
-import com.example.thymeleafcrudproject.manager.EmployeeManager;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -12,31 +11,30 @@ import java.util.List;
 @RequiredArgsConstructor
 @Repository
 public class EmployeeManagerImpl implements EmployeeManager {
-
-    private final EmployeeService employeeService;
+    private final EmployeeRepository employeeRepository;
     @Override
     public List<Employee> employees() {
-        var list = this.employeeService.findAll();
+        var list = this.employeeRepository.findAllByOrderByLastNameAsc();
         return list;
     }
 
     @Override
     public Employee getById(int id) {
-        return this.employeeService.findById(id).orElseThrow();
+        return this.employeeRepository.findById(id).orElseThrow();
     }
 
     @Override
     public void saveEmployee(Employee employee) {
-        employeeService.save(employee);
+        employeeRepository.save(employee);
     }
 
     @Override
     public void deleteEmployee(Employee employee) {
-        employeeService.delete(employee);
+        employeeRepository.delete(employee);
     }
 
     @Override
     public void saveAllEmployees(Collection<Employee> newEmployeesCollection) {
-        this.employeeService.saveAll(newEmployeesCollection);
+        this.employeeRepository.saveAll(newEmployeesCollection);
     }
 }
