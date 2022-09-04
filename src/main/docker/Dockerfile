@@ -1,6 +1,6 @@
 FROM openjdk:18-alpine as builder
 WORKDIR application
-ADD /target/ThymeLeafCRUDProject-0.0.1-SNAPSHOT.jar ./
+ADD maven/ThymeLeafCRUDProject-0.0.1-SNAPSHOT.jar ./
 RUN java -Djarmode=layertools -jar ThymeLeafCRUDProject-0.0.1-SNAPSHOT.jar extract
 
 FROM openjdk:18-alpine

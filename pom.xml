@@ -73,6 +73,28 @@
                     </excludes>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>io.fabric8</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>0.40.2</version>
+                <configuration>
+                    <verbose>true</verbose>
+                    <images>
+                        <image>
+                            <name>thyme-crud</name>
+                            <build>
+                                <assembly>
+                                    <descriptorRef>artifact</descriptorRef>
+                                </assembly>
+                                <dockerFile>Dockerfile</dockerFile>
+                                <tags>
+                                    <tag>latest</tag>
+                                </tags>
+                            </build>
+                        </image>
+                    </images>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
