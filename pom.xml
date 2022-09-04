@@ -8,11 +8,11 @@
         <version>2.7.1</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.example</groupId>
-    <artifactId>ThymeLeafCRUDProject</artifactId>
+    <groupId>com.clone-a</groupId>
+    <artifactId>thymeleaf-crud</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>ThymeLeafCRUDProject</name>
-    <description>ThymeLeafCRUDProject</description>
+    <name>thymeleaf-crud</name>
+    <description>thymeleaf-crud</description>
     <properties>
         <java.version>18</java.version>
     </properties>
@@ -81,7 +81,7 @@
                     <verbose>true</verbose>
                     <images>
                         <image>
-                            <name>thyme-crud</name>
+                            <name>springframework/${project.artifactId}</name>
                             <build>
                                 <assembly>
                                     <descriptorRef>artifact</descriptorRef>
@@ -89,6 +89,7 @@
                                 <dockerFile>Dockerfile</dockerFile>
                                 <tags>
                                     <tag>latest</tag>
+                                    <tag>${project.version}</tag>
                                 </tags>
                             </build>
                         </image>
